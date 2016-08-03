@@ -1,0 +1,124 @@
+{
+    "key": "group_5799067a763a0",
+    "title": "Slideshow",
+    "fields": [
+        {
+            "key": "field_57990991eb5c0",
+            "label": "Include this story in the Featured slideshow?",
+            "name": "slideshow_include",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Yes",
+            "default_value": 0
+        },
+        {
+            "key": "field_5799088d18e0f",
+            "label": "Slide Photo",
+            "name": "slide_photo",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57990991eb5c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg"
+        },
+        {
+            "key": "field_579908a018e10",
+            "label": "Overlay Tint Color",
+            "name": "overlay_tint_color",
+            "type": "color_picker",
+            "instructions": "This color will be overlayed with transparency on top of the photo so the text is more readable.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57990991eb5c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#daae00"
+        },
+        {
+            "key": "field_579908f818e11",
+            "label": "Custom Byline",
+            "name": "custom_byline",
+            "type": "textarea",
+            "instructions": "Optional, enter a custom byline. This will appear below the title of the post on the slide in a smaller font.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57990991eb5c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "wpautop",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:features"
+            }
+        ]
+    ],
+    "menu_order": 1000,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1469981681
+}

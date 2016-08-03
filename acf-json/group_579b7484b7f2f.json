@@ -1,0 +1,48 @@
+{
+    "key": "group_579b7484b7f2f",
+    "title": "Primary Photo",
+    "fields": [
+        {
+            "key": "field_579b7493a5dff",
+            "label": "Photo",
+            "name": "photo",
+            "type": "image",
+            "instructions": "This will be the primary photo for this post. It will show on the main archive pages as well as on the detail page large at the top.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 1000,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1469981667
+}

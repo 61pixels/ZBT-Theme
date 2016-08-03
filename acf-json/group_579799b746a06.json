@@ -1,0 +1,88 @@
+{
+    "key": "group_579799b746a06",
+    "title": "Issue Taxonomy",
+    "fields": [
+        {
+            "key": "field_579799dcf6465",
+            "label": "Cover Photo",
+            "name": "cover_photo",
+            "type": "image",
+            "instructions": "Upload an image to be used on the Archive page for the cover of this Issue. Image should be XX x XX and if larger will be cropped and resized",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_579799fff6466",
+            "label": "Published Date",
+            "name": "published_date",
+            "type": "date_picker",
+            "instructions": "This will be used in ordering the issues. Simply enter a date when this Issue was published",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_57979a3ff6467",
+            "label": "Issue Status",
+            "name": "issue_status",
+            "type": "radio",
+            "instructions": "Only change the status to Live once you are ready for the Issue to appear on the site. This will normally be once all articles are written and published for the issue.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "draft": "Draft",
+                "live": "Live"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "draft",
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "issue_cats"
+            }
+        ]
+    ],
+    "menu_order": 1000,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1469981655
+}

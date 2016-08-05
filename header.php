@@ -45,34 +45,33 @@
 								<div class="mega-drop zbluebg">
 									<h4 class="mega-issue"><?php echo 'Current Issue: ' . zbt_get_issue()->name; ?></h4>
 									<ul class="block-grid four-up">
-										<li>
-											<h3>Features</h3>
-											<?php zbt_list_articles( 'features' ); ?>
-										</li>
-										<li>
-											<h3>Alumni &amp; Chapter News</h3>
-											<?php zbt_list_articles( 'alumni-chapter-news' ); ?>
-										</li>
-										<li>
-											<h3>Foundation</h3>
-											<?php zbt_list_articles( 'foundation' ); ?>
-										</li>
-										<li>
-											<h3>Legacies</h3>
-											<?php zbt_list_articles( 'legacies' ); ?>
-										</li>
-										<li>
-											<h3>Chapter Eternal</h3>
-											<?php zbt_list_articles( 'chapter-eternal' ); ?>
-										</li>
-										<li>
-											<h3>Volunteeres</h3>
-											<?php zbt_list_articles( 'volunteers' ); ?>
-										</li>
-										<li>
-											<h3>More</h3>
-											<?php zbt_list_articles( 'more' ); ?>
-										</li>
+										<?php
+										$categories = array(
+											'features',
+											'alumni-chapter-news',
+											'foundation',
+											'legacies',
+											'chapter-eternal',
+											'volunteers',
+											'more'
+										);
+
+										foreach ( $categories as $category ) {
+										?>
+											<li>
+												<h3><?php echo get_term_by( 'slug', $category, 'category' )->name; ?></h3>
+												<?php
+												$articles = zbt_get_articles( $category );
+												echo '<ul>';
+													foreach ( $articles as $post ) {
+														setup_postdata( $post );
+														echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+													}
+													wp_reset_postdata();
+												echo '</ul>';
+												?>
+											</li>
+										<?php } ?>
 									</ul>
 								</div>
 							</li>

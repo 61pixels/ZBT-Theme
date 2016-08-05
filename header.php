@@ -47,68 +47,34 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 							<li class="searchdrop clickit"><a href="#">Search <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
 							<li class="clickit"><a href="#" class="">In This Issue <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 								<div class="mega-drop zbluebg">
-									<!-- this needs to be replaced with a query of the issue you are currently viewing -->
 									<ul class="block-grid four-up">
 										<li>
 											<h3>Features</h3>
-											<Ul>
-												<li><a href="#">The post title of the article this one is really long and wraps</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'features' ); ?>
 										</li>
 										<li>
 											<h3>Alumni &amp; Chapter News</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'alumni-chapter-news' ); ?>
 										</li>
 										<li>
 											<h3>Foundation</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'foundation' ); ?>
 										</li>
 										<li>
 											<h3>Legacies</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'legacies' ); ?>
 										</li>
 										<li>
 											<h3>Chapter Eternal</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'chapter-eternal' ); ?>
 										</li>
 										<li>
 											<h3>Volunteeres</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'volunteers' ); ?>
 										</li>
 										<li>
 											<h3>More</h3>
-											<Ul>
-												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>
-											</ul>
+											<?php zbt_list_articles( 'more' ); ?>
 										</li>
 									</ul>
 								</div>

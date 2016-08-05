@@ -7,8 +7,8 @@
 <head>
 <title><?php wp_title('&raquo;','true','right'); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />  
-<link rel="icon" sizes="192x192" href="<?php echo get_stylesheet_directory_uri() ?>/images/touch-icon-192x192.png"> 
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<link rel="icon" sizes="192x192" href="<?php echo get_stylesheet_directory_uri() ?>/images/touch-icon-192x192.png">
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo get_stylesheet_directory_uri() ?>/images/apple-touch-icon-152x152.png">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_stylesheet_directory_uri() ?>/images/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo get_stylesheet_directory_uri() ?>/images/apple-touch-icon-120x120.png">
@@ -35,12 +35,12 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 	<header class="site-header" role="banner">
 		<section class="top-head zbluebg">
 			<div class="row">
-				<div class="twelve columns">				
+				<div class="twelve columns">
 					<ul class="sites-nav inbl">
 						<li>Zeta Beta Tau |</li>
 						<li><a href="http://zbt.org" target="_blank">zbt.org</a></li>
 					</ul>
-					<div id="nav-mobile-togg">Menu <i class="fa fa-fw fa-bars"></i></div>												
+					<div id="nav-mobile-togg">Menu <i class="fa fa-fw fa-bars"></i></div>
 					<nav class="main-nav" role="navigation">
 						<?php // wp_nav_menu( array('container' => 'false', 'theme_location' => 'global_menu' )); ?>
 						<ul class="inbl">
@@ -85,7 +85,7 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 										<li>
 											<h3>Legacies</h3>
 											<Ul>
-												<li><a href="#">The post title of the article</a></li>												
+												<li><a href="#">The post title of the article</a></li>
 											</ul>
 										</li>
 										<li>
@@ -93,13 +93,13 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 											<Ul>
 												<li><a href="#">The post title of the article</a></li>
 												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>										
+												<li><a href="#">The post title of the article</a></li>
 											</ul>
 										</li>
 										<li>
 											<h3>Volunteeres</h3>
 											<Ul>
-												<li><a href="#">The post title of the article</a></li>											
+												<li><a href="#">The post title of the article</a></li>
 												<li><a href="#">The post title of the article</a></li>
 											</ul>
 										</li>
@@ -107,7 +107,7 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 											<h3>More</h3>
 											<Ul>
 												<li><a href="#">The post title of the article</a></li>
-												<li><a href="#">The post title of the article</a></li>												
+												<li><a href="#">The post title of the article</a></li>
 											</ul>
 										</li>
 									</ul>
@@ -150,8 +150,8 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 							</li>
 						</ul>
 					</nav>
-				</div>	
-			</div>		
+				</div>
+			</div>
 		</section>
 		<section class="logo-bar zgreybg">
 			<div class="row">
@@ -162,7 +162,7 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 							<h1>The Digital Deltan<em>A Publication of Zeta Beta Tau Fraternity</em></h1>
 							<h2>A Brotherhood of Kappa Nu, Phi Alpha, Phi Epsilon Pi, Phi Segma Delta and Zeta Beta Tau</h2>
 						</hgroup>
-					</a>  
+					</a>
 				</div>
 			</div>
 		</section>

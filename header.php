@@ -47,6 +47,7 @@ echo 'Current Issue: ' . zbt_get_issue()->name;
 							<li class="searchdrop clickit"><a href="#">Search <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
 							<li class="clickit"><a href="#" class="">In This Issue <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 								<div class="mega-drop zbluebg">
+									<h4 class="mega-issue"><?php echo 'Current Issue: ' . zbt_get_issue()->name; ?></h4>
 									<ul class="block-grid four-up">
 										<li>
 											<h3>Features</h3>

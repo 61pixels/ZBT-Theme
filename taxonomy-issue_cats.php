@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
-<!-- this will end up being basically the exact same layout/queries as the homepage. The only difference is it needs to pull everything form THIS term, instead of the "most recent" -->
+<main role="main">
+	<?php get_template_part( 'template-parts/issue-head' ); ?>
+	<?php get_template_part( 'template-parts/issue-articles' ); ?>
+</main>
 
 <?php get_footer(); ?>

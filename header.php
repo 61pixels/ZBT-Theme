@@ -27,10 +27,6 @@
 
 </head>
 <body <?php body_class(); ?>>
-<?php
-// Just to demonstrate issue detection. - KWH - 20160804
-echo 'Current Issue: ' . zbt_get_issue()->name;
-?>
 <a name="top"></a>
 	<header class="site-header" role="banner">
 		<section class="top-head zbluebg">

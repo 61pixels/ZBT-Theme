@@ -8,16 +8,16 @@
 <div class="main-content-wrap zgreybg content-bar-l">
 	<!-- Tiled Layouts -->
 	<?php
-	$categories = array( 'features', 'alumni-chapter-news', 'foundation' );
-	foreach ( $categories as $category ) {
+	$tiled_cats = array( 'features', 'alumni-chapter-news', 'foundation' );
+	foreach ( $tiled_cats as $tiled_cat ) {
 	?>
-		<a name="<?php echo $category; ?>"></a>
+		<a name="<?php echo $tiled_cat; ?>"></a>
 		<section class="archive-grid-section master-cats">
 			<div class="row">
 				<div class="twelve columns tcenter">
 					<div class="cat-heading">
 						<div class="buffer">
-							<h2><?php echo get_term_by( 'slug', $category, 'category' )->name; ?></h2>
+							<h2><?php echo get_term_by( 'slug', $tiled_cat, 'category' )->name; ?></h2>
 						 </div>
 						 <a href="#top" class="backtop"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
 					</div>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="row">
 				<?php
-				$articles = zbt_get_articles( $category );
+				$articles = zbt_get_articles( $tiled_cat );
 				$i = 0;
 				foreach ( $articles as $post ) {
 					setup_postdata( $post );
@@ -33,7 +33,7 @@
 					if ( 0 == $i ) {
 						$article_class = 'bshad grid-featured';
 						$columns_class = 'six columns';
-						$excerpt = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...';
+						$excerpt = 'Excerpt need defined!!! Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua...';
 					// Otherwise set up 3-column post.
 					} else {
 						$article_class = 'bshad';
@@ -86,72 +86,45 @@
 	<?php } ?>
 
 	<!-- Four Column Layout -->
-	<a name="legacy"></a>
 	<section class="archive-grid-section extra-cats">
 		<div class="row">
 			<div class="twelve columns">
-			   <ul class="block-grid four-up tablet-two-up mobile">
-					<li>
-						<div class="cat-heading tcenter no-line">
-							<div class="buffer">
-								<h2>Legacies</h2>
-							 </div>
-						</div>
-						<article class="bshad">
-							<section class="extra-grid-content">
-								<h1><a href="#">Feature article lorem ipsum dolor sit amet consectur</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do eiusmod tempor. sectetur adipisicing elit, sed do eiusmod tempor. </p>
-								<a href="#" class="grid-more">Recommend a Legacy ></a>
-							</section>
-						</article>
-					</li>
-					<li>
-						<a name="eternal"></a>
-						<div class="cat-heading tcenter no-line">
-							<div class="buffer">
-								<h2>Chapter Eternal</h2>
-							 </div>
-						</div>
-						<article class="bshad">
-							<section class="extra-grid-content">
-								<h1><a href="#">Some Title Here.</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-								<h1><a href="#">Obituary: John Doe</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-							</section>
-						</article>
-					</li>
+				<ul class="block-grid four-up tablet-two-up mobile">
+					<?php
+					$column_cats = array( 'legacies', 'chapter-eternal', 'volunteers', 'more' );
+					foreach ( $column_cats as $column_cat ) {
+					?>
 						<li>
-						<a name="volunteer"></a>
-						<div class="cat-heading tcenter no-line">
-							<div class="buffer">
-								<h2>Volunteers</h2>
-							 </div>
-						</div>
-						<article class="bshad">
-							<section class="extra-grid-content">
-								<h1><a href="#">Volunteeer: James Johnston</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do</p>
-								<a href="#" class="grid-more">Volunteer Opportunities ></a>
-							</section>
-						</article>
-					</li>
-						<li>
-						<a name="more"></a>
-						<div class="cat-heading tcenter no-line">
-							<div class="buffer">
-								<h2>More</h2>
+							<a name="<?php echo $column_cat; ?>"></a>
+							<div class="cat-heading tcenter no-line">
+								<div class="buffer">
+									<h2><?php echo get_term_by( 'slug', $column_cat, 'category' )->name; ?></h2>
+								</div>
 							</div>
-						</div>
-						<article class="bshad">
-							<section class="extra-grid-content">
-								<h1><a href="#">Letters from our leaders</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-								<h1><a href="#">Some Title Here</a></h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-							</section>
-						</article>
-					</li>
+							<article class="bshad">
+								<section class="extra-grid-content">
+									<?php
+									$articles = zbt_get_articles( $column_cat );
+									$i = 0;
+									foreach ( $articles as $post ) {
+										setup_postdata( $post );
+										$excerpt = 'Excerpt need defined!!! Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
+									?>
+										<?php the_title('<h1><a href="' . get_permalink() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h1>'); ?>
+										<p><?php echo $excerpt; ?></p>
+									<?php
+									}
+									wp_reset_postdata();
+									?>
+									<?php
+									if ( 'legacies' == $column_cat ) {
+										echo '<a href="#">' . __( 'Recommend a Legacy', 'zbt' ) . '</a>';
+									}
+									?>
+								</section>
+							</article>
+						</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

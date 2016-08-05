@@ -33,7 +33,8 @@
 					if ( 0 == $i ) {
 						$article_class = 'bshad grid-featured';
 						$columns_class = 'six columns';
-						$excerpt = 'Excerpt need defined!!! Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua...';
+						$excerpt = pixels_get_the_excerpt( 140 );
+
 					// Otherwise set up 3-column post.
 					} else {
 						$article_class = 'bshad';
@@ -108,7 +109,7 @@
 									$i = 0;
 									foreach ( $articles as $post ) {
 										setup_postdata( $post );
-										$excerpt = 'Excerpt need defined!!! Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
+										$excerpt = pixels_get_the_excerpt( 80 );
 									?>
 										<?php the_title('<h1><a href="' . get_permalink() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h1>'); ?>
 										<p><?php echo $excerpt; ?></p>

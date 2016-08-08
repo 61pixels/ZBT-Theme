@@ -96,7 +96,7 @@
 												</li>
 								<?php
 											}
-											echo '<li class="arch-all"><a href="' . home_url() . '/archive/">View All</a></li>';
+											echo '<li class="arch-all"><a href="' . home_url() . '/issues/">View All</a></li>';
 										echo '<ul>';
 									echo '</div>';
 								}

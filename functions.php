@@ -110,8 +110,8 @@ function hex2rgb($hex) {
 		$b = hexdec(substr($hex,4,2)); 
 	} 
 	$rgb = array($r, $g, $b); 
-	return $rgb; 
-} 
+	return implode(",", $rgb);
+}
 
 // -----------------------------------------------------------------------------------
 // BANNERS - LOOK FOR BANNER IMAGE AND IF NOT, GO UP TO EACH PARENT AND CHECK THERE AND DISPLAY

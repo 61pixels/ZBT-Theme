@@ -25,15 +25,19 @@
 				echo '<ul class="slides">';
 					foreach ( $articles as $post ) {
 						setup_postdata( $post );
-						$teaser = get_field( 'custom_byline' );
+						$teaser = get_field( 'custom_byline');
+						$slideimg = get_field('slide_photo');
+						$temptint = get_field('overlay_tint_color');
+						$thetint = hex2rgb($temptint);								
 			?>
-						<li style="background-image:url('http://www.zbt.com/wp-content/uploads/2016/06/sample-photo2-600x338.jpg');">
-							<span class="photo-overlay"></span>
+
+						<li style="<?php if($slideimg) : ?>background-image:url('<?php echo $slideimg['url']; ?>');<?php endif; ?>">
+							<span class="photo-overlay"  style="<?php if($thetint) :?>background-color: rgba(<?php echo $thetint; ?>, .6); );<?php endif; ?>"></span>
 							<div class="row"><div class="ten columns centered">
 								<div class="cat-heading no-line reversed"><div class="buffer"><h2><?php echo $issue->name ?></h2></div></div>
 								<a href="<?php the_permalink(); ?>">
-									<?php the_title('<h1>', '</h1>'); ?>
-									<p><?php echo $teaser; ?></p>
+									<h1><?php the_title(); ?></h1>
+									<?php if($teaser) { ?><p><?php echo $teaser; ?></p><?php } ?>
 								</a>
 							</div>
 						</li>
@@ -48,7 +52,7 @@
 	</section>
 	<?php
 		$abouthead = get_field('heading', 'option');
-		$aboutcont = get_field('heading', 'option');
+		$aboutcont = get_field('content', 'option');
 		if( $abouthead || $aboutcont) {
 	?>
 		<section class="issue-intro tcenter content-bar">

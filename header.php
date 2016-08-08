@@ -79,36 +79,28 @@
 							<li><a href="https://securedonations.omegafi.com/apps/securedonationsdesktop/zetabetatau/templates/zbt_donations_display.php" target="_blank">Donate</a></li>
 							<li><a href="http://zbt.org/component/content/article/25.html" target="_blank">Make a Referral</a></li>
 							<li class="archivedrop clickit"><a href="<?php echo home_url(); ?>/archive/">Archive <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-								<div class="mega-drop zbluebg">
-									<!-- needs to be replaced with query of 4 Issues with live status, sorted DESC -->
-									<ul class="drop-issue-arch">
-										<li>
-											<a href="#">
-												<img src="<?php echo home_url(); ?>/wp-content/uploads/2016/07/sample-book.jpg" alt="" />
-												Name of the Issue
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="<?php echo home_url(); ?>/wp-content/uploads/2016/07/sample-book.jpg" alt="" />
-												Name of the Issue
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="<?php echo home_url(); ?>/wp-content/uploads/2016/07/sample-book.jpg" alt="" />
-												Name of the Issue
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="<?php echo home_url(); ?>/wp-content/uploads/2016/07/sample-book.jpg" alt="" />
-												Name of the Issue
-											</a>
-										</li>
-										<li class="arch-all"><a href="<?php echo home_url(); ?>/archive/">View All</a></li>
-									</ul>
-								</div>
+								<?php
+								$live_issues = zbt_get_live_issues( 4 );
+								if ( ! empty( $live_issues ) ) {
+									echo '<div class="mega-drop zbluebg">';
+										echo '<ul class="drop-issue-arch">';
+											foreach ( $live_issues as $issue ) {
+												$term_link = get_term_link( $issue );
+												$cover_photo = get_field( 'cover_photo', $issue, false );
+								?>
+												<li>
+													<a href="<?php echo $term_link; ?>">
+														<?php echo wp_get_attachment_image( $cover_photo, 'print-cover' ); ?>
+														<?php echo $issue->name; ?>
+													</a>
+												</li>
+								<?php
+											}
+											echo '<li class="arch-all"><a href="' . home_url() . '/archive/">View All</a></li>';
+										echo '<ul>';
+									echo '</div>';
+								}
+								?>
 							</li>
 						</ul>
 					</nav>

@@ -17,49 +17,31 @@ Template Name: Issues Archive Grid
 					</div>
 				</div>
 			</header>
-
 			<section class="main-content-wrap zgreybg content-bar-l">
 				<div class="row">
 					<div class="twelve columns">
 						<?php the_content(); ?>
 						<?php
-						// query goes here, needs to output all Issues in DESC order (newest first), sorted by ACF date field 'published_date' and only ones that have 'issue_status" ACF field = live
-						// Issues taxonomy is issue_cats
-						// needs to display cover photo, acf field 'cover_photo' and issue title, both clickable to issue archive page
-						// sample html:
+						$live_issues = zbt_get_live_issues();
+						if ( ! empty( $live_issues ) ) {
+							echo '<ul class="block-grid four-up">';
+								foreach ( $live_issues as $issue ) {
+									$term_link = get_term_link( $issue );
+									$cover_photo = get_field( 'cover_photo', $issue, false );
 						?>
-						<!--<ul class="block-grid four-up">
-							<li>
-								<a href="issuearchivelink">
-									<img src="the cover_photo img size print-cover" alt="img alt" />
-									Issue Title Here
-								</a>
-							</li>
-							<li>
-								<a href="issuearchivelink">
-									<img src="the cover_photo img size print-cover" alt="img alt" />
-									Issue Title Here
-								</a>
-							</li>
-							<li>
-								<a href="issuearchivelink">
-									<img src="the cover_photo img size print-cover" alt="img alt" />
-									Issue Title Here
-								</a>
-							</li>
-							<li>
-								<a href="issuearchivelink">
-									<img src="the cover_photo img size print-cover" alt="img alt" />
-									Issue Title Here
-								</a>
-							</li>
-							<li>
-								<a href="issuearchivelink">
-									<img src="the cover_photo img size print-cover" alt="img alt" />
-									Issue Title Here
-								</a>
-							</li>
-						</ul>-->
+									<li>
+										<a href="<?php echo $term_link; ?>">
+											<?php echo wp_get_attachment_image( $cover_photo, 'print-cover' ); ?>
+											<?php echo $issue->name; ?>
+										</a>
+									</li>
+						<?php
+								}
+							echo '</ul>';
+						} else {
+							echo '<h2>' . __( 'No published issues found.', 'zbt' ) . '</h2>';
+						}
+						?>
 					</div>
 				</div>
 			</section>

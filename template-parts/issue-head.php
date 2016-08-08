@@ -25,6 +25,7 @@
 				echo '<ul class="slides">';
 					foreach ( $articles as $post ) {
 						setup_postdata( $post );
+						$teaser = get_field( 'custom_byline' );
 			?>
 						<li style="background-image:url('http://www.zbt.com/wp-content/uploads/2016/06/sample-photo2-600x338.jpg');">
 							<span class="photo-overlay"></span>
@@ -32,7 +33,7 @@
 								<div class="cat-heading no-line reversed"><div class="buffer"><h2><?php echo $issue->name ?></h2></div></div>
 								<a href="<?php the_permalink(); ?>">
 									<?php the_title('<h1>', '</h1>'); ?>
-									<p>Where does this teaser text come from?</p>
+									<p><?php echo $teaser; ?></p>
 								</a>
 							</div>
 						</li>

@@ -47,6 +47,7 @@ jQuery(document).ready(function($) {
 			animation: "slide",
 			animationSpeed: 400,  
     	    slideshowSpeed: 7000, //Integer: Set the speed of the slideshow cycling, in milliseconds
+    	    smoothHeight: true,
 			controlNav: false,
 			pauseOnHover: true,
 			pauseOnAction: true,

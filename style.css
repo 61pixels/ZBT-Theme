@@ -397,6 +397,10 @@ h1.archive-title {font-size:22px;}
 .chap-news-row {margin-bottom:1.6em;border-bottom:1px solid #b7b7b7;}
 	.chap-news-row h2 {text-transform:uppercase;}
 	.chap-news-row h3 {margin:0;}
+/* issues main archive page */
+.issue-archs {}
+	.issue-archs img {margin:0 auto 10px auto;}
+
 
 /* share bar */
 .share-bar {border-top:1px solid #bfbfbf;border-bottom:1px solid #bfbfbf;padding:20px 0 0 0;margin:60px 0 30px 0;}

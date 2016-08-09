@@ -64,8 +64,7 @@
 									echo wp_get_attachment_image( $photo['ID'], 'main-photo', false, array( 'class' => 'grid-img-main' ) );
 								// Otherwise fall back to default photo.
 								} else {
-									echo '<img class="grid-img-main" src="' . get_stylesheet_directory_uri() . '/images/large-test.jpg" alt="">';
-									// echo'<img class="grid-img-main" src="' . get_stylesheet_directory_uri() . '/images/default-photo.jpg" alt="">';
+									echo '<img class="grid-img-main" src="' . get_stylesheet_directory_uri() . '/images/default-story-photo.jpg" alt="default story photo">';									
 								}
 								?>
 								<a class="grid-mask-meta" href="<?php the_permalink(); ?>"><span class="button binversed"><?php _e( 'More', 'zbt' ); ?></span></a>

@@ -83,14 +83,18 @@
 								$live_issues = zbt_get_live_issues( 4 );
 								if ( ! empty( $live_issues ) ) {
 									echo '<div class="mega-drop zbluebg">';
-										echo '<ul class="drop-issue-arch">';
+										echo '<ul class="drop-issue-arch  issue-archs">';
 											foreach ( $live_issues as $issue ) {
 												$term_link = get_term_link( $issue );
 												$cover_photo = get_field( 'cover_photo', $issue, false );
 								?>
 												<li>
 													<a href="<?php echo $term_link; ?>">
-														<?php echo wp_get_attachment_image( $cover_photo, 'print-cover' ); ?>
+															<?php if($cover_photo) {
+																echo wp_get_attachment_image( $cover_photo, 'print-cover' ); 
+															} else {
+																echo '<img src="' . get_stylesheet_directory_uri() . '/images/default-issue-cover.jpg" alt="default issue cover">';											
+															} ?>
 														<?php echo $issue->name; ?>
 													</a>
 												</li>

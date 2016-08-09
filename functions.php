@@ -136,7 +136,7 @@ add_filter('oembed_dataparse', 'stf_embed_filter', 90, 3 );
 
 // registering and setting up WP to support features
 //add_theme_support( 'post-thumbnails' );	
-add_image_size('print-cover', 175, 265, true);
+add_image_size('print-cover', 245, 316, true);
 add_image_size('main-photo', 485, 340, true);
 add_image_size('post-photo', 1000, 425, true);
 

@@ -138,6 +138,199 @@
                     "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_57aa10d9e274b",
+            "label": "Chapter News",
+            "name": "chapter_news",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57990db5dd1d5",
+                        "operator": "==",
+                        "value": "chapnews"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_57aa10efe274c",
+            "min": "",
+            "max": "",
+            "layout": "block",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_57aa1359e274d",
+                    "label": "Story Type",
+                    "name": "story_type",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 50,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "state": "State",
+                        "antecedent": "Antecedent"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal"
+                },
+                {
+                    "key": "field_57aa10efe274c",
+                    "label": "State",
+                    "name": "state",
+                    "type": "select",
+                    "instructions": "Select the state this news story or stories belongs to.",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_57aa1359e274d",
+                                "operator": "==",
+                                "value": "state"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": 50,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "AL": "Alabama",
+                        "AK": "Alaska",
+                        "AZ": "Arizona",
+                        "AR": "Arkansas",
+                        "CA": "California",
+                        "CO": "Colorado",
+                        "CT": "Connecticut",
+                        "DE": "Delaware",
+                        "DC": "District of Columbia",
+                        "FL": "Florida",
+                        "GA": "Georgia",
+                        "HI": "Hawaii",
+                        "ID": "Idaho",
+                        "IL": "Illinois",
+                        "IN": "Indiana",
+                        "IA": "Iowa",
+                        "KS": "Kansas",
+                        "KY": "Kentucky",
+                        "LA": "Louisiana",
+                        "ME": "Maine",
+                        "MD": "Maryland",
+                        "MA": "Massachusetts",
+                        "MI": "Michigan",
+                        "MN": "Minnesota",
+                        "MS": "Mississippi",
+                        "MO": "Missouri",
+                        "MT": "Montana",
+                        "NE": "Nebraska",
+                        "NV": "Nevada",
+                        "NH": "New Hampshire",
+                        "NJ": "New Jersey",
+                        "NM": "New Mexico",
+                        "NY": "New York",
+                        "NC": "North Carolina",
+                        "ND": "North Dakota",
+                        "OH": "Ohio",
+                        "OK": "Oklahoma",
+                        "OR": "Oregon",
+                        "PA": "Pennsylvania",
+                        "RI": "Rhode Island",
+                        "SC": "South Carolina",
+                        "SD": "South Dakota",
+                        "TN": "Tennessee",
+                        "TX": "Texas",
+                        "UT": "Utah",
+                        "VT": "Vermont",
+                        "VA": "Virginia",
+                        "WA": "Washington",
+                        "WV": "West Virginia",
+                        "WI": "Wisconsin",
+                        "WY": "Wyoming"
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_57aa13a5e274e",
+                    "label": "Antecedent",
+                    "name": "antecedent",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_57aa1359e274d",
+                                "operator": "==",
+                                "value": "antecedent"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": 50,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Kappa Nu": "Kappa Nu",
+                        "Phi Alpha": "Phi Alpha",
+                        "Phi Epsilon Pi": "Phi Epsilon Pi",
+                        "Phi Sigma Delta": "Phi Sigma Delta"
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_57aa144be274f",
+                    "label": "Story Content",
+                    "name": "story_content",
+                    "type": "wysiwyg",
+                    "instructions": "Enter all news stories here for this state\/antecedent. Proper usage should be using a \"Heading 3\" tag for the title.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0
+                }
+            ]
         }
     ],
     "location": [
@@ -157,5 +350,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1469981628
+    "modified": 1470764442
 }

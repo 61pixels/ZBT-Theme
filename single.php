@@ -36,14 +36,17 @@
 			</header>
 		
 			<?php 
-				$featimg = get_field('photo');
-				if ($featimg) { 
-			?>	
-				<img src="<?php echo $featimg['sizes']['post-photo']; ?>" alt="<?php echo $featimg['alt'] ?>" class="sing-feat-img" />	
-			<?php } ?>				
+				if ($thetype == 'standard') { // we only want this main photo to appear on standard posts 
+					$featimg = get_field('photo');
+					if ($featimg) { ?>				
+						<img src="<?php echo $featimg['sizes']['post-photo']; ?>" alt="<?php echo $featimg['alt'] ?>" class="sing-feat-img" />	
+			<?php 
+					} 
+				}
+			?>				
 			<section class="sing-content content-bar-l p-content">			
 				<div class="row">				
-					<div class="ten columns centered">
+					<div class="ten columns centered">						
 						<?php the_content(); ?>	
 
 						<?php if( $thetype == 'zbtprint') { ?>
@@ -64,12 +67,37 @@
 										</div>
 									<?php endwhile;	?>	
 								<?php endif; ?>
+						<?php } elseif ( $thetype == 'chapnews' ) { ?>						
+							<?php 
+								// queries and loops here for chap content 
+								// Repeater : chapter_news
+								// radio : story_type
+									// values : state or antecedent
+								// state dropdown : state
+								// antecedent dropdown : antecedent
+								// wysiwyg : story_content
+
+								// obviously this is just outputting the actual "stories" and their "sections" need a bit of help with the loop through the items for the intial anchors, I can take care of course of the html/output of it
+								if( have_rows('chapter_news') ): 
+									while ( have_rows('chapter_news') ) : the_row(); 
+									// guess need to add all of the rows to a new array at this point to loop through for the custom anchors/heading for them?										
+										$whatype = get_sub_field('story_type');	
+										$field = get_sub_field_object($whatype);
+										$value = get_sub_field($whatype);
+										$thelabel = $field['choices'][ $value ];
+									?>					
+									<section class="chap-news-row">
+										<h2><?php echo $thelabel; ?><a href="#top" class="backtop"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></h2>						
+										<?php the_sub_field('story_content'); ?>	
+									</section>
+									<?php endwhile;	?>	
+								<?php endif; ?>
 						<?php } ?>
 
 						<section class="share-bar">
 							<ul class="inbl">
-								<li><a target="_blank" href="#" title="Visit our Facebook Page" class="share-fb"><i class="fa fa-facebook"></i></a></li>	
-								<li><a target="_blank" href="#" title="Visit our Twitter Page" class="share-twit"><i class="fa fa-twitter"></i></a></li>
+								<li><a target="_blank" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title();?>" data-href="<?php the_permalink();?>" title="Share to Facebook" class="share-fb" rel="nofollow"><i class="fa fa-facebook"></i></a></li>	
+								<li><a target="_blank" href="http://twitter.com/share" data-text="<?php the_title();?>" data-url="<?php echo wp_get_shortlink(); ?>" title="Share to Twitter" class="share-twit" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
 								<li class="share-it">Share this article</li>
 							</ul>
 						</section>

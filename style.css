@@ -281,7 +281,7 @@ input[type="submit"] {-webkit-appearance: none !important;border:none !important
 @media only screen and (min-width: 768px)  {
 	.archive-grid-section article {margin-bottom:32px;}
 	.archive-grid-section article p {font-size:18px;line-height:1.6em;} 
-		.archive-grid-section.extra-cats article p {font-size:16px;line-height:1.6em;} 
+		.archive-grid-section.extra-cats article p, .archive-grid-section.extra-cats article a.extra-link {font-size:16px;line-height:1.6em;} 
 	/* hover effects we only want this on tablet and up */	
 	.grid-hover-item {background:#ffd200;position:relative;margin-left:-1px;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}				
 	.archive-grid-section .grid-img-main {transition: 0.5s ease;opacity: 1;width:100%;vertical-align:bottom;height:auto;max-width:100%; -webkit-backface-visibility: hidden;}
@@ -393,6 +393,11 @@ h1.archive-title {font-size:22px;}
 	.print-row h2 {margin:0;}
 	.print-row .book-byline {font-size:16px;font-style:italic;}
 	.print-row .book-excerpt p{font-size:18px;}
+/* chapter news custom */
+.chap-news-row {margin-bottom:1.6em;border-bottom:1px solid #b7b7b7;}
+	.chap-news-row h2 {text-transform:uppercase;}
+	.chap-news-row h3 {margin:0;}
+
 /* share bar */
 .share-bar {border-top:1px solid #bfbfbf;border-bottom:1px solid #bfbfbf;padding:20px 0 0 0;margin:60px 0 30px 0;}
 	.share-bar li {vertical-align:middle;line-height:1;}
@@ -463,7 +468,6 @@ ul.side-nav li.root_level_page_item a {}
 /*	8.	Site Main Footer Styles
 /*-----------------------------------------------------------------------------------*/
 .site-footer {}
-.foot-logo {width:200px;margin:0 0 20px 0;}
 .foot-connect {}
 	.foot-connect h4 {color:#fff;font-size:26px;margin:0 0 5px 0;}
 	.foot-connect ul {margin:0;}
@@ -594,6 +598,7 @@ body .p-content .gform_wrapper .top_label div.ginput_container {margin-top:0;}
 	.issue-cats {display:none;}
 	.backtop {display:none;}
 	/* footer */
+	.foot-logo {width:200px;margin:0 0 20px 0;}
 	.foot-connect li {margin-right:0;}
 	.foot-connect a {font-size:18px;}
 	.foot-content h5 {font-size:26px;line-height:1em;}

@@ -119,7 +119,10 @@
 									?>
 									<?php
 									if ( 'legacies' == $column_cat ) {
-										echo '<a href="#">' . __( 'Recommend a Legacy', 'zbt' ) . '</a>';
+										echo '<a href="#" class="extra-link">' . __( 'Recommend a Legacy >', 'zbt' ) . '</a>';
+									}
+									if ( 'volunteers' == $column_cat ) {
+										echo '<a href="http://www.zbt.org/alumni/volunteering-with-zbt.html" target="_blank" class="extra-link">' . __( 'Volunteer Opportunities >', 'zbt' ) . '</a>';
 									}
 									?>
 								</section>

@@ -29,6 +29,8 @@
 				$i = 0;
 				foreach ( $articles as $post ) {
 					setup_postdata( $post );
+					$photo = get_field( 'photo' );
+
 					// If first post, set up 6-column feature post.
 					if ( 0 == $i ) {
 						$article_class = 'bshad grid-featured';
@@ -64,7 +66,7 @@
 									echo wp_get_attachment_image( $photo['ID'], 'main-photo', false, array( 'class' => 'grid-img-main' ) );
 								// Otherwise fall back to default photo.
 								} else {
-									echo '<img class="grid-img-main" src="' . get_stylesheet_directory_uri() . '/images/default-story-photo.jpg" alt="default story photo">';									
+									echo '<img class="grid-img-main" src="' . get_stylesheet_directory_uri() . '/images/default-story-photo.jpg" alt="default story photo">';
 								}
 								?>
 								<a class="grid-mask-meta" href="<?php the_permalink(); ?>"><span class="button binversed"><?php _e( 'More', 'zbt' ); ?></span></a>

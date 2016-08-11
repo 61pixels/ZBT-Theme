@@ -40,77 +40,93 @@
 					<nav class="main-nav" role="navigation">
 						<?php // wp_nav_menu( array('container' => 'false', 'theme_location' => 'global_menu' )); ?>
 						<ul class="inbl">
-							<li class="searchdrop clickit"><a href="#">Search <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-							<li class="clickit"><a href="#" class="">In This Issue <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-								<div class="mega-drop zbluebg">
-									<h4 class="mega-issue"><?php echo 'Current Issue: ' . zbt_get_issue()->name; ?></h4>
-									<ul class="block-grid four-up">
-										<?php
-										$categories = array(
-											'features',
-											'alumni-chapter-news',
-											'foundation',
-											'legacies',
-											'chapter-eternal',
-											'volunteers',
-											'more'
-										);
-
-										foreach ( $categories as $category ) {
-										?>
-											<li>
-												<h3><?php echo get_term_by( 'slug', $category, 'category' )->name; ?></h3>
-												<?php
-												$articles = zbt_get_articles( $category );
-												echo '<ul>';
-													foreach ( $articles as $post ) {
-														setup_postdata( $post );
-														echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
-													}
-													wp_reset_postdata();
-												echo '</ul>';
-												?>
-											</li>
-										<?php } ?>
-									</ul>
-								</div>
-							</li>
+							<li id="nav-search"><a href="#">Search <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+							<li id="nav-issue"><a href="#" class="">In This Issue <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
 							<li class="page-74"><a href="<?php echo home_url(); ?>/email-sign-up/">Subscribe</a></li>
 							<li><a href="https://securedonations.omegafi.com/apps/securedonationsdesktop/zetabetatau/templates/zbt_donations_display.php" target="_blank">Donate</a></li>
 							<li><a href="http://zbt.org/component/content/article/25.html" target="_blank">Make a Referral</a></li>
-							<li class="archivedrop clickit"><a href="<?php echo home_url(); ?>/archive/">Archive <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-								<?php
-								$live_issues = zbt_get_live_issues( 4 );
-								if ( ! empty( $live_issues ) ) {
-									echo '<div class="mega-drop zbluebg">';
-										echo '<ul class="drop-issue-arch  issue-archs">';
-											foreach ( $live_issues as $issue ) {
-												$term_link = get_term_link( $issue );
-												$cover_photo = get_field( 'cover_photo', $issue, false );
-								?>
-												<li>
-													<a href="<?php echo $term_link; ?>">
-															<?php if($cover_photo) {
-																echo wp_get_attachment_image( $cover_photo, 'print-cover' ); 
-															} else {
-																echo '<img src="' . get_stylesheet_directory_uri() . '/images/default-issue-cover.jpg" alt="default issue cover">';											
-															} ?>
-														<?php echo $issue->name; ?>
-													</a>
-												</li>
-								<?php
-											}
-											echo '<li class="arch-all"><a href="' . home_url() . '/issues/">View All</a></li>';
-										echo '<ul>';
-									echo '</div>';
-								}
-								?>
-							</li>
+							<li id="nav-archive"><a href="<?php echo home_url(); ?>/archive/">Archive <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
+			<!-- mega menus -->
+			<div class="mega-drop zbluebg" id="nav-issue-menu">
+				<div class="row">
+					<div class="twelve columns">
+						<h4 class="mega-issue"><?php echo 'Viewing: ' . zbt_get_issue()->name; ?></h4>
+						<ul class="block-grid four-up">
+							<?php
+							$categories = array(
+								'features',
+								'alumni-chapter-news',
+								'foundation',
+								'legacies',
+								'chapter-eternal',
+								'volunteers',
+								'more'
+							);
+
+							foreach ( $categories as $category ) {
+							?>
+								<li>
+									<h3><?php echo get_term_by( 'slug', $category, 'category' )->name; ?></h3>
+									<?php
+									$articles = zbt_get_articles( $category );
+									echo '<ul>';
+										foreach ( $articles as $post ) {
+											setup_postdata( $post );
+											echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+										}
+										wp_reset_postdata();
+									echo '</ul>';
+									?>
+								</li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>
+			</div><!-- / nav-issue-menu -->			
+			<?php
+				$live_issues = zbt_get_live_issues( 4 );
+				if ( ! empty( $live_issues ) ) {
+			?>
+					<div class="mega-drop zbluebg" id="nav-archive-menu">
+						<div class="row">
+							<div class="twelve columns">
+								<ul class="drop-issue-arch issue-archs">
+								<?php
+									foreach ( $live_issues as $issue ) {
+										$term_link = get_term_link( $issue );
+										$cover_photo = get_field( 'cover_photo', $issue, false );
+								?>
+										<li>
+											<a href="<?php echo $term_link; ?>">
+													<?php if($cover_photo) {
+														echo wp_get_attachment_image( $cover_photo, 'print-cover' ); 
+													} else {
+														echo '<img src="' . get_stylesheet_directory_uri() . '/images/default-issue-cover.jpg" alt="default issue cover">';											
+													} ?>
+												<?php echo $issue->name; ?>
+											</a>
+										</li>
+									<?php } ?>
+									<li class="arch-all"><a href="<?php echo home_url(); ?>/issues/">View All</a></li>
+								<ul>
+							</div>
+						</div>
+					</div><!-- nav-archive-menu -->
+			<?php } ?>
+			<div class="mega-drop zbluebg" id="nav-search-menu">
+				<div class="row">
+					<div class="ten columns centered">
+						<?php get_search_form(); ?>
+					</div>
+				</div>
+			</div>
+
 		</section>
+
 		<section class="logo-bar zgreybg">
 			<div class="row">
 				<div class="twelve columns">

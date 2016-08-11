@@ -116,5 +116,29 @@ jQuery(document).ready(function($) {
 	  equalheight('.extra-cats .extra-grid-content');
 	});
 
+
+	var n=$("#nav-search-menu, #nav-archive-menu, #nav-issue-menu"), // these are the mega-menu elements
+	o=$("#nav-search, #nav-archive, #nav-issue"); // these are the navigation elements
+	$iconlink=o.find("a"),
+	$closeButton=$(".nav-close"),
+	n.hide(),
+	o.click(function(i){
+		var s;
+		i.preventDefault(),
+		o.removeClass("open"),
+		$iconlink.removeClass("current-link"),
+		s=$("#"+this.id+"-menu"),
+		n.slideUp(200),
+		s.is(":visible")||(s.slideDown(350),
+		$(this).addClass("open"),
+		$(this).find("a").addClass("current-link")),
+		$closeButton.click(function($){
+			$.preventDefault(),
+			n.slideUp(),
+			$iconlink.removeClass("current-link")
+		})
+	})
+
+
 });
 

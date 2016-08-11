@@ -135,7 +135,7 @@ input[type="color"]:focus,input[type="date"]:focus,input[type="datetime"]:focus,
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(160, 160, 160, 0.7) !important;
 	outline: none !important;
 }
-input[type="submit"] {-webkit-appearance: none !important;border:none !important;cursor:pointer;}
+input[type="submit"], button {-webkit-appearance: none !important;border:none !important;cursor:pointer;}
 
 /*-----------------------------------------------------------------------------------*/
 /*	3.	Header Styles
@@ -153,6 +153,10 @@ input[type="submit"] {-webkit-appearance: none !important;border:none !important
 	.logo-bar h1 em {font-family:'Times New Roman', serif;font-size:35px;display:block;}
 	.logo-bar h2 {color:#005288;font-size:15px;font-family: 'Quattrocento Sans', sans-serif;margin:0;}
 
+/* search form */
+#search-form {margin:0 0 20px 0;}
+#search-form input[type="text"] {width:100%;border-radius: 3px;margin: 0;line-height: 1;outline: none;background:#fff;}
+	button#head-search-sub {color:#ffd200;font-size:26px;background:#fff;position:absolute;right:8px;top:8px;}
 
 /* 3.1 DESKTOP ONLY NAVIGATION STYLES */
 /* lets set some stuff up for rollovers for desktop only */
@@ -167,17 +171,20 @@ input[type="submit"] {-webkit-appearance: none !important;border:none !important
 			.main-nav ul>li:last-child a {}	
 		.main-nav ul.menu>li>a:hover, .main-nav ul.menu>li:hover>a {color:#ffd200;}		
 		/* active state */	
-		body.page-id-74 .main-nav>ul>li.page-74>a, body.page-id-81 .main-nav>ul>li.archivedrop>a {background:#002f50;} /* active state */
+		body.page-id-74 .main-nav>ul>li.page-74>a, body.page-id-81 .main-nav>ul>li.archivedrop>a, .main-nav ul>li.open>a{background:#002f50;} /* active state */
+		/* for drop items opened, lets add yellow */
+		.main-nav .open a {color:#ffd200;}
+		.main-nav .open .fa:before {content: "\f077";}
 	/* sub menu hovers */
 	.main-nav .sub-menu {display:none !important;}
 	#nav-mobile-togg {display:none;}
 	/* mega drops */
-	.mega-drop {position:absolute;width:100%;z-index:99999;left:0;padding:30px 30px 10px 30px;display:none;background:#005288 url('images/bg-mega-grad.png') repeat-x 0 0;}
-		.clickit:hover .mega-drop {display:block;}
+	.mega-drop {position:absolute;width:100%;z-index:99999;left:0;padding:30px 30px 10px 30px;display:none;background:#005288 url('images/bg-mega-grad.png') repeat-x 0 0;border-bottom:4px solid #002f50;}	
 	.mega-drop ul.block-grid>li {margin-bottom:20px;}
 		.mega-drop li {display:block;padding:0 0 5px 0}
 		.mega-drop h3 {font-size:15px;text-transform:uppercase;color:#ffd200;margin:0 0 5px 0;}
-		.mega-drop a {font-size:13px;text-transform:none;font-weight:400;display:block;}
+		.mega-drop h4{color:#fff;font-family: 'cinzel', sans-serif;}
+		.mega-drop a {font-size:13px;text-transform:none;font-weight:400;display:block;color:#fff}
 			.mega-drop a:hover {color:#aacaf7;}
 	/* archives drop */
 	.drop-issue-arch li {display:inline-block;text-align:center;margin-right:20px;}	
@@ -345,36 +352,21 @@ input[type="submit"] {-webkit-appearance: none !important;border:none !important
 /*	5.	Blog Index Styles
 /*-----------------------------------------------------------------------------------*/
 article.index-post {overflow:hidden;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid #ccc;}   
-.index-feat {float:left;margin-right:20px;}
-.entry-head {clear:both;margin-bottom:20px;}
+.entry-head {margin-bottom:10px;}
 article.index-post .entry-content p {margin:0 0 10px 0;}		
 article.index-post h2 {margin:0;font-size:28px;}
 article.index-post h2 a{}
 	article.index-post h2 a:hover{}
-article.post .entry-meta {margin:0;font-size:14px;color:#d21242;}
-	article.single-post .entry-meta {margin-bottom:20px;}
-	article.post .entry-meta a {}
-		article.post .entry-meta a:hover {} 
-article.single-post h1 {margin-bottom:0;}		
-article .meta-published {}
-article .meta-categories {}	
+article.index-post .entry-meta {margin:0;font-size:14px;}
 article .post-copy {}
-footer.meta {}
-footer.meta .more {display:block;font-size:20px;}
-    footer.meta .more:hover {}
 
 /* archive custom */
 .archive-wrap {border-bottom:1px solid #d7d8dc;margin-bottom:20px;}
-h1.archive-title {font-size:22px;}
+h1.archive-title {font-size:22px;text-transform:uppercase;}
 
 /* Generic pagenavi styles */
-.wp-pagenavi {display:block;overflow:hidden;width:100%;text-align:center;}
-.wp-pagenavi a, .wp-pagenavi span {text-align:center;padding:0 5px 0 0;font-family:arial;font-weight:bold;}
-.wp-pagenavi a:hover {}
-.wp-pagenavi .page, .wp-pagenavi span {display:none;} /* lets hide the numbers and stick with older/newer */
-.wp-pagenavi .nextpostslink {float:right;margin:0}
-.wp-pagenavi .previouspostslink {float:left;margin:0;}
-
+.nav-previous {float:left;}
+.nav-next {float:right;}
 /*-----------------------------------------------------------------------------------*/
 /*	6.	Single Posts
 /*-----------------------------------------------------------------------------------*/
@@ -394,6 +386,12 @@ h1.archive-title {font-size:22px;}
 	.print-row .book-byline {font-size:16px;font-style:italic;}
 	.print-row .book-excerpt p{font-size:18px;}
 /* chapter news custom */
+.anchor-sort-block {padding-bottom:40px;}
+	.anchor-sort-block .cat-heading {margin-bottom:10px;}
+	.anchor-sort-block ul {list-style:none;margin:0 0 40px 0;}
+	.anchor-sort-block li {margin-right:15px;}
+		.anchor-sort-block li:last-child {margin-right:0;}
+
 .chap-news-row {margin-bottom:1.6em;border-bottom:1px solid #b7b7b7;}
 	.chap-news-row h2 {text-transform:uppercase;}
 	.chap-news-row h3 {margin:0;}

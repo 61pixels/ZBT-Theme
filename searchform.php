@@ -1,6 +1,5 @@
-<form id="search-form" name="search_form" action="<?php bloginfo('url'); ?>/" method="get" >
-	<input type="text" id="s" name="s" class="swap search-box" value="Search Mass Impact" />
-	<input type="submit" name="submit" id="search-submit" class="hide-text" value="Go" />
-	<input id="" type="hidden" value="Search"/>
-</form>    
-
+<form id="search-form" class="searchform" action="<?php bloginfo('url'); ?>/" method="get" >
+	<input type="text" name="s" class="s" value="<?php _e('Search') ?>" onfocus="if(this.value=='<?php _e('Search') ?>')this.value='';" onblur="if(this.value=='')this.value='<?php _e('Search') ?>';" />
+	
+	<button type="submit" id="head-search-sub"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+</form>  

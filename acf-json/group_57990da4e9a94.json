@@ -296,10 +296,10 @@
                         "id": ""
                     },
                     "choices": {
-                        "Kappa Nu": "Kappa Nu",
-                        "Phi Alpha": "Phi Alpha",
-                        "Phi Epsilon Pi": "Phi Epsilon Pi",
-                        "Phi Sigma Delta": "Phi Sigma Delta"
+                        "kappa-nu": "Kappa Nu",
+                        "phi-alpha": "Phi Alpha",
+                        "phi-epsilon-pi": "Phi Epsilon Pi",
+                        "phi-sigma-delta": "Phi Sigma Delta"
                     },
                     "default_value": [
 
@@ -350,5 +350,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1470764442
+    "modified": 1470855460
 }

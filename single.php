@@ -95,35 +95,31 @@
 
 									// Only state stories go in this array. Used for state nav.
 									if ( 'state' == $type ) {
-										$state_nav[] = array(
-											'value' => $value,
-											'label' => $label
-										);
+										$state_nav[ $label ] = $value;
 									// Only antecedent stories go in this array. Used for antecedent nav.
 									} elseif ( 'antecedent' == $type ) {
-										$antecedent_nav[] = array(
-											'value' => $value,
-											'label' => $label
-										);
+										$antecedent_nav[ $label ] = $value;
 									}
 								}
 
 								// Display state nav if available.
 								if ( ! empty( $state_nav ) ) {
+									ksort( $state_nav );
 									echo '<h2>' . __( 'By State', 'zbt' ) . '</h2>';
 									echo '<ul>';
-										foreach ( $state_nav as $state ) {
-											echo '<li><a href="#' . $state['value'] . '">' . $state['value'] . '</a></li>';
+										foreach ( $state_nav as $label => $value ) {
+											echo '<li><a href="#' . $value . '">' . $value . '</a></li>';
 										}
 									echo '</ul>';
 								}
 
 								// Display antecedent nav if available.
 								if ( ! empty( $antecedent_nav ) ) {
+									ksort( $antecedent_nav );
 									echo '<h2>' . __( 'By Antecedent', 'zbt' ) . '</h2>';
 									echo '<ul>';
-										foreach ( $antecedent_nav as $antecedent ) {
-											echo '<li><a href="#' . $antecedent['value'] . '">' . $antecedent['label'] . '</a></li>';
+										foreach ( $antecedent_nav as $label => $value ) {
+											echo '<li><a href="#' . $value . '">' . $label . '</a></li>';
 										}
 									echo '</ul>';
 								}

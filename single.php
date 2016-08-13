@@ -68,6 +68,7 @@
 									<?php endwhile;	?>
 								<?php endif; ?>
 						<?php } elseif ( $thetype == 'chapnews' ) { ?>
+							<section class="anchor-sort-block">
 							<?php
 							if ( have_rows('chapter_news') ) {
 								// Initialize array to hold story data.
@@ -105,8 +106,11 @@
 								// Display state nav if available.
 								if ( ! empty( $state_nav ) ) {
 									ksort( $state_nav );
+									echo '<div class="cat-heading tcenter no-line">';
+									echo '<div class="buffer">';
 									echo '<h2>' . __( 'By State', 'zbt' ) . '</h2>';
-									echo '<ul>';
+									echo '</div></div>';
+									echo '<ul class="inbl tcenter">';
 										foreach ( $state_nav as $label => $value ) {
 											echo '<li><a href="#' . $value . '">' . $value . '</a></li>';
 										}
@@ -116,16 +120,22 @@
 								// Display antecedent nav if available.
 								if ( ! empty( $antecedent_nav ) ) {
 									ksort( $antecedent_nav );
+									echo '<div class="cat-heading tcenter no-line">';
+									echo '<div class="buffer">';
 									echo '<h2>' . __( 'By Antecedent', 'zbt' ) . '</h2>';
-									echo '<ul>';
+									echo '</div></div>';
+									echo '<ul class="inbl tcenter">';
 										foreach ( $antecedent_nav as $label => $value ) {
 											echo '<li><a href="#' . $value . '">' . $label . '</a></li>';
 										}
 									echo '</ul>';
 								}
-
+							?>
+							</section>
+							<?php
 								foreach( $stories as $story ) {
 							?>
+									<a name="<?php echo $story['value']; ?>"></a>
 									<section class="chap-news-row">
 										<h2><?php echo $story['label']; ?><a href="#top" class="backtop"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></h2>
 										<?php echo $story['content']; ?>

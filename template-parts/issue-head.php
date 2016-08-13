@@ -6,7 +6,7 @@
 					<li><a href="#features">Features</a></li>
 					<li><a href="#alumni-chapter-news">Alumni &amp; Chapter News</a></li>
 					<li><a href="#foundation">Foundation</a></li>
-					<li><a href="#legacy">Legacies</a></li>
+					<li><a href="#legacies">Legacies</a></li>
 					<li><a href="#chapter-eternal">Chapter Eternal</a></li>
 					<li><a href="#volunteers">Volunteers</a></li>
 					<li><a href="#more">More</a></li>
@@ -28,7 +28,7 @@
 						$teaser = get_field( 'custom_byline');
 						$slideimg = get_field('slide_photo');
 						$temptint = get_field('overlay_tint_color');
-						$thetint = hex2rgb($temptint);								
+						$thetint = hex2rgb($temptint);
 			?>
 
 						<li style="<?php if($slideimg) : ?>background-image:url('<?php echo $slideimg['url']; ?>');<?php endif; ?>">
@@ -64,5 +64,5 @@
 			</div>
 		</section>
 	<?php } ?>
-<?php } // is front_page ?>
+<?php } // is_front_page || is_tax ?>
 

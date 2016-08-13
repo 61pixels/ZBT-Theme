@@ -45,7 +45,7 @@
 							<li class="page-74"><a href="<?php echo home_url(); ?>/email-sign-up/">Subscribe</a></li>
 							<li><a href="https://securedonations.omegafi.com/apps/securedonationsdesktop/zetabetatau/templates/zbt_donations_display.php" target="_blank">Donate</a></li>
 							<li><a href="http://zbt.org/component/content/article/25.html" target="_blank">Make a Referral</a></li>
-							<li id="nav-archive"><a href="<?php echo home_url(); ?>/archive/">Archive <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+							<li id="nav-archive"><a href="<?php echo home_url(); ?>/issues/">Archive <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>
 				</div>

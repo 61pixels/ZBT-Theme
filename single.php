@@ -69,30 +69,76 @@
 								<?php endif; ?>
 						<?php } elseif ( $thetype == 'chapnews' ) { ?>
 							<?php
-								// queries and loops here for chap content
-								// Repeater : chapter_news
-								// radio : story_type
-									// values : state or antecedent
-								// state dropdown : state
-								// antecedent dropdown : antecedent
-								// wysiwyg : story_content
+							if ( have_rows('chapter_news') ) {
+								// Initialize array to hold story data.
+								$stories = [];
 
-								// obviously this is just outputting the actual "stories" and their "sections" need a bit of help with the loop through the items for the intial anchors, I can take care of course of the html/output of it
-								if( have_rows('chapter_news') ):
-									while ( have_rows('chapter_news') ) : the_row();
-									// guess need to add all of the rows to a new array at this point to loop through for the custom anchors/heading for them?
-										$whatype = get_sub_field('story_type');
-										$field = get_sub_field_object($whatype);
-										$value = get_sub_field($whatype);
-										$thelabel = $field['choices'][ $value ];
-									?>
+								// Initialize arrys to hold nav data.
+								$state_nav = [];
+								$antecedent_nav = [];
+
+								while ( have_rows( 'chapter_news' ) ) {
+									the_row();
+									$type         = get_sub_field('story_type');
+									$value        = get_sub_field( $type );
+									$field_object = get_sub_field_object( $type );
+									$label        = $field_object['choices'][ $value ];
+									$content      = get_sub_field( 'story_content' );
+
+									// All stories go in this array. Used for display.
+									$stories[] = array(
+										'type'    => $type,
+										'value'   => $value,
+										'label'   => $label,
+										'content' => $content
+									);
+
+									// Only state stories go in this array. Used for state nav.
+									if ( 'state' == $type ) {
+										$state_nav[] = array(
+											'value' => $value,
+											'label' => $label
+										);
+									// Only antecedent stories go in this array. Used for antecedent nav.
+									} elseif ( 'antecedent' == $type ) {
+										$antecedent_nav[] = array(
+											'value' => $value,
+											'label' => $label
+										);
+									}
+								}
+
+								// Display state nav if available.
+								if ( ! empty( $state_nav ) ) {
+									echo '<h2>' . __( 'By State', 'zbt' ) . '</h2>';
+									echo '<ul>';
+										foreach ( $state_nav as $state ) {
+											echo '<li><a href="#' . $state['value'] . '">' . $state['value'] . '</a></li>';
+										}
+									echo '</ul>';
+								}
+
+								// Display antecedent nav if available.
+								if ( ! empty( $antecedent_nav ) ) {
+									echo '<h2>' . __( 'By Antecedent', 'zbt' ) . '</h2>';
+									echo '<ul>';
+										foreach ( $antecedent_nav as $antecedent ) {
+											echo '<li><a href="#' . $antecedent['value'] . '">' . $antecedent['label'] . '</a></li>';
+										}
+									echo '</ul>';
+								}
+
+								foreach( $stories as $story ) {
+							?>
 									<section class="chap-news-row">
-										<h2><?php echo $thelabel; ?><a href="#top" class="backtop"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></h2>
-										<?php the_sub_field('story_content'); ?>
+										<h2><?php echo $story['label']; ?><a href="#top" class="backtop"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></h2>
+										<?php echo $story['content']; ?>
 									</section>
-									<?php endwhile;	?>
-								<?php endif; ?>
-						<?php } ?>
+						<?php
+								}
+							}
+						}
+						?>
 
 						<section class="share-bar">
 							<ul class="inbl">
